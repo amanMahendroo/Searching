@@ -1,7 +1,8 @@
 class Cell {
 	// A single, fully conscious cell
 	constructor(_i, _j) {
-		this.index = { i: _i, j: _j }
+		this.i = _i
+		this.j = _j
 		this.pos = createVector(_i * 20, _j * 20)
 		this.state = 0
 		this.g_score = Infinity
