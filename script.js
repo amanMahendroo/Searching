@@ -13,7 +13,8 @@ function setup() {
 
 	hyperparametrize()
 
-	alg = new AStar()
+
+	// alg = new AStar()
 }
 
 let grid, start, end, fills, points, n_W, n_H, alg
@@ -21,8 +22,23 @@ let grid, start, end, fills, points, n_W, n_H, alg
 function draw() {
 	background(51)
 	grid.map((row) => row.map((cell) => cell.show()))
-	if (!alg.found) {
-		alg.search()
+	if (alg) {
+		if (!alg.found) {
+			alg.search()
+		}
+	}
+}
+
+function keyPressed() {
+	if (keyCode == 32) {
+		alg = new AStar()
+	}
+}
+
+function mouseDragged() {
+	// console.log(1)
+	if (alg == undefined) {
+		grid[Math.floor(mouseX / 20)][Math.floor(mouseY / 20)].state = 3
 	}
 }
 
