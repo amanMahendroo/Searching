@@ -2,7 +2,10 @@
 <html>
 <head>
 	<title>Pathfinding Visualizer</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+	<script src="ui.js"></script>
 	<script src="cell.js"></script>
 	<script src="AStar.js"></script>
 	<script src="Dijkstra.js"></script>
@@ -10,6 +13,19 @@
 	<script src="script.js"></script>
 </head>
 <body>
-
+	<div class="nav">
+		<div class="move">
+			<div class="s" id="S">S</div>
+			<div class="e" id="E">E</div>
+		</div>
+		<div class="alg">
+			<div id="AS" class="s" title="A Star">A*</div>
+			<div id="DJ" class="e" title="Dijkstra">D</div>
+		</div>
+		<div class="main">
+			<div class="reset">R</div>
+			<div class="play">P</div>
+		</div>
+	</div>
 </body>
 </html>

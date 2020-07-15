@@ -3,7 +3,7 @@ class Cell {
 	constructor(_i, _j) {
 		this.i = _i
 		this.j = _j
-		this.pos = createVector(_i * 20, _j * 20)
+		this.pos = createVector(_i * size, _j * size)
 		this.state = 0
 		this.g_score = Infinity
 		this.f_score = Infinity
@@ -13,9 +13,9 @@ class Cell {
 	}
 
 	show() {
-		stroke(255, 50)
+		stroke(255, 5)
 		fill(fills[this.state])
-		rect(this.pos.x, this.pos.y, 20)
+		rect(this.pos.x, this.pos.y, size)
 	}
 }
 
