@@ -9,12 +9,7 @@ function setup() {
 		t = t.map((col, j) => new Cell(i, j))
 		return t
 	})
-	// console.log(grid)
-
 	hyperparametrize()
-
-
-	// alg = new AStar()
 }
 
 let grid, start, end, fills, points, n_W, n_H, alg
@@ -31,14 +26,18 @@ function draw() {
 
 function keyPressed() {
 	if (keyCode == 32) {
-		alg = new AStar()
+		alg = new Dijkstra()
 	}
 }
 
 function mouseDragged() {
-	// console.log(1)
 	if (alg == undefined) {
 		grid[Math.floor(mouseX / 20)][Math.floor(mouseY / 20)].state = 3
 	}
 }
 
+function mouseClicked() {
+	if (alg == undefined) {
+		grid[Math.floor(mouseX / 20)][Math.floor(mouseY / 20)].state = 3
+	}
+}
