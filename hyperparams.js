@@ -1,6 +1,6 @@
 function hyperparametrize() {
 	// Sets initial values required for pathfinding and visualization
-	start = {i: 12, j: 12}, end = {i: 21, j: 21}
+	start = {i: floor(n_H/2), j: floor(n_H/2)}, end = {i: n_W - floor(n_H/2), j: floor(n_H/2)}
 	grid.map((row, i) => row.map((cell, j) => cell.state = (i == 0 || i == n_W - 1 || j == 0 || j == n_H - 1) ? 3: 0))
 	grid[start.i][start.j].state = 1
 	grid[end.i][end.j].state = 2
