@@ -7,7 +7,9 @@ class Cell {
 		this.state = 0
 		this.g_score = Infinity
 		this.f_score = Infinity
+		this.t_dist = Infinity
 		this.parent
+		this.visited = false
 	}
 
 	show() {
