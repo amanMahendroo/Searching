@@ -2,6 +2,52 @@ body {
 	margin: 0;
 	user-select: none;
 	overflow: hidden;
+	font-family: 'Roboto', sans-serif;
+}
+
+.tutorial {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	z-index: 100;
+	background: #0007;
+	color: #fff;
+}
+
+.tutorial .skip {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 250px;
+	text-align: center;
+	height: 75px;
+	line-height: 75px;
+	text-transform: uppercase;
+	color: #fff7;
+	font-size: 1.4em;
+	transition: .15s all ease;
+	cursor: pointer;
+}
+
+.tutorial .skip:hover {
+	color: #fff;
+}
+
+.tutorial .hint {
+	background: #fff;
+	border-radius: 5px;
+	border: 2px solid #ccc;
+	width: 300px;
+	color: #000;
+	padding: 10px;
+	position: absolute;
+}
+
+.tutorial .hint .continue {
+	text-align: right;
+	font-size: .8em;
+	margin-top: 5px;
+	color: #777;
 }
 
 canvas {
@@ -13,7 +59,6 @@ canvas {
 	height: 100px;
 	width: 100vw;
 	display: flex;
-	font-family: Segoe UI;
 	color: #0f8;
 	background: #000;
 	position: absolute;
@@ -64,13 +109,5 @@ canvas {
 
 .s { border-radius: 20px 0 0 20px; }
 .e { border-radius: 0 20px 20px 0; }
-
-.active-s {
-
-	border-left: 2px solid #0f8 !important;
-}
-
-.active-e {
-
-	border-right: 2px solid #0f8 !important;
-}
+.active-s {	border-left: 2px solid #0f8 !important; }
+.active-e {	border-right: 2px solid #0f8 !important; }

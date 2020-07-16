@@ -1,11 +1,11 @@
 class AStar {
 	constructor() {
-		this.open = [grid[start.i][start.j]]
+		this.open = [tools.grid[tools.start.i][tools.start.j]]
 		this.found = false
-		grid[start.i][start.j].g_score = 0
+		tools.grid[tools.start.i][tools.start.j].g_score = 0
 	}
 
-	h(n, m = end) {
+	h(n, m = tools.end) {
 		let [x, y] = [abs(n.i - m.i), abs(n.j - m.j)] 
 		return (min(x, y) * 1.4 + abs(x - y))
 	}
@@ -30,8 +30,8 @@ class AStar {
 	}
 
 	retrace(x) {
-		let a = grid[x.parent.i][x.parent.j]
-		if (!this.cellComp(x.parent, start)) {
+		let a = tools.grid[x.parent.i][x.parent.j]
+		if (!this.cellComp(x.parent, tools.start)) {
 			a.state = 6
 			this.retrace(a)
 		} else {
@@ -41,16 +41,16 @@ class AStar {
 
 	searchStep() {
 		let [cur, cur_ind] = this.getCur()
-		if (this.cellComp(cur, end)) {
+		if (this.cellComp(cur, tools.end)) {
 			return cur
 		}
 
 		this.open.splice(cur_ind, 1)
-		grid[cur.i][cur.j].state = 5
+		tools.grid[cur.i][cur.j].state = 5
 
 		let n = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1], ], neighbors = []
 		for (var i = 0; i < n.length; i++) {
-			let _ = grid[cur.i + n[i][0]][cur.j + n[i][1]]
+			let _ = tools.grid[cur.i + n[i][0]][cur.j + n[i][1]]
 			if (_.state == 3 || _.state == 5) {
 				n.splice(i, 1)
 			} else {
@@ -60,11 +60,11 @@ class AStar {
 
 		neighbors.map((c, i) => {
 			let g = cur.g_score + this.h(cur, c)
-			if (g < grid[c.i][c.j].g_score) {
-				grid[c.i][c.j].parent = {i: cur.i, j: cur.j}
-				grid[c.i][c.j].g_score = g
-				grid[c.i][c.j].f_score = g + this.h(c)
-				grid[c.i][c.j].state = 4
+			if (g < tools.grid[c.i][c.j].g_score) {
+				tools.grid[c.i][c.j].parent = {i: cur.i, j: cur.j}
+				tools.grid[c.i][c.j].g_score = g
+				tools.grid[c.i][c.j].f_score = g + this.h(c)
+				tools.grid[c.i][c.j].state = 4
 
 				let flag = false
 				for (var i = 0; i < this.open.length; i++) {
@@ -78,7 +78,7 @@ class AStar {
 				}
 			}
 		})
-		grid[start.i][start.j].state = 1
-		grid[end.i][end.j].state = 2
+		tools.grid[tools.start.i][tools.start.j].state = 1
+		tools.grid[tools.end.i][tools.end.j].state = 2
 	}	
 }
