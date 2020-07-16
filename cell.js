@@ -1,9 +1,9 @@
 class Cell {
 	// A single, fully conscious cell
-	constructor(_i, _j) {
+	constructor(_i, _j, _s) {
 		this.i = _i
 		this.j = _j
-		this.pos = createVector(_i * size, _j * size)
+		this.pos = createVector(_i * _s, _j * _s)
 		this.state = 0
 		this.g_score = Infinity
 		this.f_score = Infinity
@@ -14,8 +14,8 @@ class Cell {
 
 	show() {
 		stroke(255, 5)
-		fill(fills[this.state])
-		rect(this.pos.x, this.pos.y, size)
+		fill(tools.fills[this.state])
+		rect(this.pos.x, this.pos.y, tools.size)
 	}
 }
 
