@@ -49,6 +49,8 @@ $(document).ready(function () {
 			tools.alg = new AStar()
 		} else if (x == 'DJ') {
 			tools.alg = new Dijkstra()
+		} else {
+			tools.alg = new Sample()
 		}
 	})
 
